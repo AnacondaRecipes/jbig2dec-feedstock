@@ -46,5 +46,9 @@ about:
     100:1
 
 extra:
+  anaconda-services:
+    comment: "Built for customer as a dependency to mupdf"
+    recipe_maintainers:
+      - bkreider
   recipe-maintainers:
     - scopatz
