@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -ex
 
+cp -r ${BUILD_PREFIX}/share/libtool/build-aux/config.* .
+
 autoreconf -i
 ./configure \
   --prefix="${PREFIX}" \

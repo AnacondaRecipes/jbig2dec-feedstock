@@ -1,14 +1,13 @@
 {% set name = "jbig2dec" %}
-{% set version = "0.18" %}
-{% set ghostscript_tag = "gs952" %}
+{% set version = "0.20" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/{{ ghostscript_tag }}/jbig2dec-{{ version }}.tar.gz
-  sha256: 9e19775237350e299c422b7b91b0c045e90ffa4ba66abf28c8fb5eb005772f5e
+  url: https://github.com/ArtifexSoftware/{{ name }}/releases/download/{{ version }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 7b63ff6470289547e7a3a0f145cb8ea6c2afffdd65645b7d87d3b7febc96fb3a
 
 build:
   number: 0
@@ -17,23 +16,24 @@ build:
 
 requirements:
   build:
+    - {{ stdlib('c') }}
     - {{ compiler('c') }}
+    - make  # [unix]
     - cmake  # [win]
-    - make
     - libtool  # [unix]
     - autoconf  # [unix]
     - automake  # [unix]
     - pkg-config
   host:
-    - zlib
-    - libpng
+    - libzlib {{ libzlib }}
+    - libpng {{ libpng }}
 
 test:
   commands:
     - jbig2dec --help
 
 about:
-  home: https://jbig2dec.com/
+  home: https://github.com/ArtifexSoftware/jbig2dec
   license: AGPL-3.0-only
   license_family: AGPL
   license_file: COPYING
@@ -44,6 +44,8 @@ about:
     in particular, scanned paper documents. In this domain it can
     be very efficient, offering compression ratios on the order of
     100:1
+  doc_url: https://github.com/ArtifexSoftware/jbig2dec
+  dev_url: https://github.com/ArtifexSoftware/jbig2dec
 
 extra:
   recipe-maintainers:
