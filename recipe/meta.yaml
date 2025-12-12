@@ -25,7 +25,7 @@ requirements:
     - automake  # [unix]
     - pkg-config
   host:
-    - libzlib {{ libzlib }}
+    - zlib {{ zlib }}
     - libpng {{ libpng }}
 
 test:
