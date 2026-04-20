@@ -48,5 +48,9 @@ about:
   dev_url: https://github.com/ArtifexSoftware/jbig2dec
 
 extra:
+  anaconda-services:
+    comment: "Built for customer as a dependency to mupdf"
+    recipe_maintainers:
+      - bkreider
   recipe-maintainers:
     - scopatz
